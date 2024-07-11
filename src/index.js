@@ -1,22 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import SignIn from './pages/SignIn/signin';
+import Home from './pages/Home/home';
+import MainHome from './pages/Home/mainhome';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <Home/>,
   },
   {
     path: "/signin",
-    element: <SignIn/>,
+    element: <Home/>,
+    children: [
+      {
+        path: "/signin",
+        element: <SignIn/>,
+      }
+    ],
+  },
+  {
+    path: "/home",
+    element: <Home/>,
+    children: [
+      {
+        path: "/home",
+        element: <MainHome/>,
+      }
+    ],
+  }
+  ,
+  {
+    path: "/home",
+    element: <Home/>,
   }
 ]);
 
