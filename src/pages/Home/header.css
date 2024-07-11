@@ -1,0 +1,67 @@
+.fwd {
+    width: 20%;
+    height: 50%;
+    font-size: 3vh;
+    margin: 2%;
+    background-color: #F7F99D;
+    display: flex;
+    font-weight: bold;
+    justify-content: space-around;
+    padding: 3.3% 3%;
+    font-family: 'Knewave';
+    border: 1px solid white;
+    border-radius: 11%;
+  }
+  .right{
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+  }
+  .crown{
+    width: 13vw;
+    height: 4.8vh;
+    margin-right: 2%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(./image.png);
+  }
+  .ins{
+    display: flex;
+margin-top: 2%;
+  }
+  .insider {
+    margin-top: 2%;
+    width: 33%;
+    height: 15%;
+    font-family: 'Kantumruy';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #000000;
+}
+.head {
+    margin-bottom: 14%; /* Adjusted margin as needed */
+  }
+  .sect {
+    display: flex;
+    flex-direction: row;
+padding-right: 2%;
+    align-items: center;
+  }
+  .ins {
+    width: 70px; 
+    height: 15px;
+    font-family: 'Kantumruy';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    background: linear-gradient(90deg, rgba(106, 97, 48, 0.8) 0%, #D0BE5D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  
+
+

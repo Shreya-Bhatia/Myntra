@@ -1,0 +1,54 @@
+.foot{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    font-size: small;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.Myntra,.Mini,.community,.Trends,.Profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.myntra-logo{
+    background-image: url('./logos/myntra.png');
+    width: 11vw;
+    height: 5vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.min-logo{
+    background-image: url('./logos/vid.png');
+    width: 11vw;
+    height: 5vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.comm-logo{
+    background-image: url('./logos/comm.png');
+    width: 11vw;
+    height: 5vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.trend-logo{
+    background-image: url('./logos/trend.png');
+    width: 11vw;
+    height: 5vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.profile-logo{
+    background-image: url('./logos/profile.png');
+    width: 11vw;
+    height: 5vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
