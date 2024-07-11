@@ -1,0 +1,19 @@
+.signin {
+	padding: 20px;
+}
+
+.maintext {
+	font-size: 25px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: bold;
+	width: 250px;
+}
+
+.signinbutton {
+	padding: 10px;
+	background-color: darkorange;
+	border: none;
+	border-radius: 10px;
+	margin-top: 20px;
+	color: white;
+}
