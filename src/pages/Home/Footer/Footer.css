@@ -18,35 +18,35 @@
 
 
 .myntra-logo{
-    background-image: url('./logos/myntra.png');
+    background-image: url('../logos/myntra.png');
     width: 11vw;
     height: 5vh;
     background-repeat: no-repeat;
     background-position: center;
 }
 .min-logo{
-    background-image: url('./logos/vid.png');
+    background-image: url('../logos/vid.png');
     width: 11vw;
     height: 5vh;
     background-repeat: no-repeat;
     background-position: center;
 }
 .comm-logo{
-    background-image: url('./logos/comm.png');
+    background-image: url('../logos/comm.png');
     width: 11vw;
     height: 5vh;
     background-repeat: no-repeat;
     background-position: center;
 }
 .trend-logo{
-    background-image: url('./logos/trend.png');
+    background-image: url('../logos/trend.png');
     width: 11vw;
     height: 5vh;
     background-repeat: no-repeat;
     background-position: center;
 }
 .profile-logo{
-    background-image: url('./logos/profile.png');
+    background-image: url('../logos/profile.png');
     width: 11vw;
     height: 5vh;
     background-repeat: no-repeat;

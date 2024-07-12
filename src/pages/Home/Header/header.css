@@ -24,7 +24,7 @@
     margin-right: 2%;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(./image.png);
+    background-image: url('../logos/image.png');
   }
   .ins{
     display: flex;
