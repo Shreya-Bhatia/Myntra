@@ -1,6 +1,7 @@
 import './signin.css'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
-import app from '../../firebase';
+import {app,db} from '../../firebase'
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const provider = new GoogleAuthProvider();
 
@@ -8,22 +9,19 @@ const auth = getAuth();
 
 function signIn() {
 	signInWithPopup(auth, provider)
-  .then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
+  .then(async (result) => {
+    const userRef = doc(db,"users",auth.currentUser.uid);
+    const userDoc = await getDoc(userRef);
+    if(!userDoc.exists()) {
+      await setDoc(
+        userRef, {
+          uid: auth.currentUser.uid,
+          streak_count: 0
+        }
+      );
+    }
   }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
+    alert('There are some server issues....');
   });
 }
 
