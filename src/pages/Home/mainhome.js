@@ -3,8 +3,11 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import { useNavigate } from "react-router-dom";
 const auth = getAuth();
+import { useEffect, useState } from "react";
 
 function MainHome() {
+
+	const auth = getAuth();
 	const user = auth.currentUser;
 	const navigate = useNavigate();
 	function signout() {
@@ -20,7 +23,7 @@ function MainHome() {
 	return (
 		<div className="mainhome">
 			<Header></Header>
-			Hello, {user.displayName}
+			Hello {user.displayName}
 			<button onClick={signout}>Logout</button>
 			<button onClick={goToLeaderboard}>LeaderBoard</button>
 			<Footer></Footer>
