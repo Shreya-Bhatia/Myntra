@@ -9,7 +9,7 @@ import {
 import SignIn from './pages/SignIn/signin';
 import Home from './pages/Home/home';
 import MainHome from './pages/Home/mainhome';
-
+import Leaderboard from './pages/LeaderBoard/Lead';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,8 +34,11 @@ const router = createBrowserRouter([
         element: <MainHome/>,
       }
     ],
-  }
-  ,
+  },
+  {
+    path: '/Lead', 
+    element: <Leaderboard />,
+  },
   {
     path: "/home",
     element: <Home/>,
