@@ -7,11 +7,13 @@ import { useEffect, useState } from "react";
 function MainHome() {
 
 	const auth = getAuth();
-	const user = auth.currentUser;
+	
+	const user = JSON.parse(localStorage.getItem('user'));
 	const navigate = useNavigate();
 	function signout() {
 		signOut(auth).then(() => {
 			alert("You have signed out successfully !!");
+			localStorage.setItem('user',{});
 		}).catch((error) => {
 			alert("There are some server issues !!");
 		});

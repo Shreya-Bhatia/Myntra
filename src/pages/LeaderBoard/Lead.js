@@ -5,15 +5,23 @@ import React, { useRef} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'; 
 import {db} from '../../firebase'
-import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { getAuth } from 'firebase/auth';
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 function Lead() {
 
     const storage = getStorage();
-    const auth = getAuth();
+    const user = JSON.parse(localStorage.getItem('user'));
+    const [streakCount,setCount] = useState(0);
+    
+    const getUser = async () => {
+        const userRef = doc(db,"users",user.uid);
+        const userDoc = await getDoc(userRef);
+        setCount(userDoc.data().streak_count);
+    };
+
+    getUser();
 
     // const fileInput=useRef(null);
     
@@ -32,7 +40,7 @@ function Lead() {
 
 		e.preventDefault();
 
-        const uid = auth.currentUser.uid;
+        const uid = user.uid;
 
 		if(file==null) {
             return;
@@ -66,7 +74,7 @@ function Lead() {
 		<div className="Lead">
 			<Header></Header>
             <div className="Leadin">
-			<div className='score'><p>Your score: </p><div className='num'><p>1000</p><div className="imag"></div></div></div>
+			<div className='score'><p>Your score: </p><div className='num'><p>{streakCount}</p><div className="imag"></div></div></div>
 			<div className='board'>
                 <div className="leaderBoard">
                     <h6 className='lead'>LeaderBoard</h6>

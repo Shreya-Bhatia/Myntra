@@ -10,6 +10,7 @@ const auth = getAuth();
 function signIn() {
 	signInWithPopup(auth, provider)
   .then(async (result) => {
+    localStorage.setItem('user',JSON.stringify(auth.currentUser));
     const userRef = doc(db,"users",auth.currentUser.uid);
     const userDoc = await getDoc(userRef);
     if(!userDoc.exists()) {
