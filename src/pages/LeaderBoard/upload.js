@@ -62,6 +62,7 @@ function Upload() {
 
         alert('OOTD uploaded successfully...');
     }
+    
 
     return (
         <div className="container">

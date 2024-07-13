@@ -10,6 +10,7 @@ function MainHome() {
 	
 	const user = JSON.parse(localStorage.getItem('user'));
 	const navigate = useNavigate();
+	
 	function signout() {
 		signOut(auth).then(() => {
 			alert("You have signed out successfully !!");
