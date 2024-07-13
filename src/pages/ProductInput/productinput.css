@@ -1,0 +1,15 @@
+.productinput {
+	display: grid;
+	grid-template-columns: repeat(2,200px);
+	grid-gap: 15px;
+	margin: 30px;
+	background-color: crimson;
+	width: 400px;
+	padding: 30px;
+	color: white;
+}
+
+.psubmit {
+	padding: 5px;
+	width: 100px;
+}
