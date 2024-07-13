@@ -11,6 +11,11 @@ justify-content: space-around;
 align-items: center;
 margin-bottom: 2%;
 }
+.num{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+}
 .board{
   color: #fff;  
   padding: 2%;
@@ -55,6 +60,7 @@ margin: 4%;
    font-weight: bold;
    display: flex;
    align-items: center;
+   margin-left: 2%;
 }
 .leaderBoard{
     border: 2px #060A2D solid;
@@ -82,6 +88,7 @@ color: black;
     width: 8vw;
     background-position: center;
     background-repeat: no-repeat;
+    margin-top: 2%;
 }
 .itag{
     background-image: url('../Home/logos/streak.png');
@@ -89,6 +96,8 @@ color: black;
     width: 7vw;
     background-position: center;
     background-repeat: no-repeat;
+    margin-left: 5%;
+    margin-top: 2%;
 }
 .lead{
     color: black    ;

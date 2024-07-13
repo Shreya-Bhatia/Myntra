@@ -66,7 +66,7 @@ function Lead() {
 		<div className="Lead">
 			<Header></Header>
             <div className="Leadin">
-			<div className='score'><p>Your score: 1000</p><div className="imag"></div></div>
+			<div className='score'><p>Your score: </p><div className='num'><p>1000</p><div className="imag"></div></div></div>
 			<div className='board'>
                 <div className="leaderBoard">
                     <h6 className='lead'>LeaderBoard</h6>

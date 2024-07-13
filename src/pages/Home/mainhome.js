@@ -19,12 +19,16 @@ function MainHome() {
 	function goToLeaderboard() {
 		navigate('/Lead'); 
 	}
+	function goToProduct() {
+		navigate('/Accessory'); 
+	}
 	return (
 		<div className="mainhome">
 			<Header></Header>
 			Hello {user.displayName}
 			<button onClick={signout}>Logout</button>
 			<button onClick={goToLeaderboard}>LeaderBoard</button>
+			<button onClick={goToProduct}>Product</button>
 			<Footer></Footer>
 		</div>
 	);
