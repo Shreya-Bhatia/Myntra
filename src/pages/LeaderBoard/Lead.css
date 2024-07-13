@@ -41,19 +41,25 @@ margin-bottom: 2%;
 .Leadin{
     display: flex;
     flex-direction: column; 
-    align-items: center;  
+    align-items: center; 
+    flex: 1;
+    overflow-y: auto; 
 }
-
+.Lead{
+    display: flex;
+    flex-direction: column;
+}
 .ootd{
     font-weight: bolder;
     background-color: #FFEFE1;
     border: 2px solid #ff912e;
     border-radius: 9%;
 color: #FF912E;
-width: 70%;
+width: 70vw;
 padding: 3%;
 font-size: large;
 margin: 4%;
+
 }
 .others{
    display: flex;
@@ -61,6 +67,7 @@ margin: 4%;
    display: flex;
    align-items: center;
    margin-left: 2%;
+   justify-content: left;
 }
 .leaderBoard{
     border: 2px #060A2D solid;
@@ -73,6 +80,22 @@ margin: 3% 0%;
 color: black;
 
 }
+.outfits{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1% 5%;
+    margin-bottom: 7vh;
+    justify-content: space-between;
+}
+.outfit{
+    background-image: url('./20d6e971-a65c-49d4-85e9-053f71d13e071681276633859DressesMISSPAPWomenCo-OrdsMISSPAPWomenDressesMISSPAPWomenDre1.jpg');
+    height: 30vh;
+    width: 45%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .person{
     display: flex;
     justify-content: space-around;
@@ -102,4 +125,7 @@ color: black;
 .lead{
     color: black    ;
     font-size: larger;
+}
+footer {
+    margin-top: auto; /* Push the footer to the bottom */
 }

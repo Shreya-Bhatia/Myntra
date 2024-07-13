@@ -12,6 +12,7 @@ import MainHome from './pages/Home/mainhome';
 import Leaderboard from './pages/LeaderBoard/Lead';
 import ProductInput from './pages/ProductInput/productinput';
 import Accessories from './pages/Accessories/Accessory'
+import Upload from './pages/LeaderBoard/upload'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
    {
     path: '/Accessory', 
     element: <Accessories />,
+  },
+  {
+    path: '/upload', 
+    element: <Upload />,
   },
   {
     path: "/home",

@@ -1,0 +1,45 @@
+input[type="file"]::file-selector-button{
+    margin-left: 2%;
+    padding: 3%;
+    background-color: palevioletred;
+    font-size: 2vh;
+border: 2px solid blueviolet;
+border-radius: 5%;
+}
+
+.choose{
+    font-size: 2vh;
+    font-weight: bold;  
+}
+.Submit{
+font-weight: bolder;
+    background-color: #FFEFE1;
+    border: 2px solid #ff912e;
+    border-radius: 9%;
+color: #FF912E;
+width: 70vw;
+padding: 3%;
+font-size: large;
+margin: 4%;
+}
+
+.title-is{
+    margin-left:2%;
+    margin-bottom:3%;
+}
+.Image{
+    height: auto;
+    width: 100%;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
