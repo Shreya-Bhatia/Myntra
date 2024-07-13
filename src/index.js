@@ -10,7 +10,7 @@ import SignIn from './pages/SignIn/signin';
 import Home from './pages/Home/home';
 import MainHome from './pages/Home/mainhome';
 import Leaderboard from './pages/LeaderBoard/Lead';
-import Accessories from './pages/Accessories/Accessory';
+import ProductInput from './pages/ProductInput/productinput';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,7 +47,11 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <Home/>,
-  }
+  },
+  {
+    path: '/product', 
+    element: <ProductInput />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
