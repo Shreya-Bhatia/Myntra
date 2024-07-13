@@ -10,6 +10,7 @@ import SignIn from './pages/SignIn/signin';
 import Home from './pages/Home/home';
 import MainHome from './pages/Home/mainhome';
 import Leaderboard from './pages/LeaderBoard/Lead';
+import Accessories from './pages/Accessories/Accessory';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: '/Lead', 
     element: <Leaderboard />,
+  },
+   {
+    path: '/Accessory', 
+    element: <Accessories />,
   },
   {
     path: "/home",
