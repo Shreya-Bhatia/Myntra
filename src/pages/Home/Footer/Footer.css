@@ -1,5 +1,5 @@
 .foot{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     display: flex;
     justify-content: space-around;
@@ -24,6 +24,13 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+.myntra-logo-black{
+    background-image: url('../logos/myntra-black-logo.png');
+    width: 11vw;
+    height: 5vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .min-logo{
     background-image: url('../logos/vid.png');
     width: 11vw;
@@ -33,6 +40,13 @@
 }
 .comm-logo{
     background-image: url('../logos/comm.png');
+    width: 11vw;
+    height: 5vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.comm-pink-logo{
+    background-image: url('../logos/comm-pink.png');
     width: 11vw;
     height: 5vh;
     background-repeat: no-repeat;

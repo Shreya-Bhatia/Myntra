@@ -2,7 +2,6 @@ import { getAuth, signOut } from "firebase/auth"
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import { useNavigate } from "react-router-dom";
-const auth = getAuth();
 import { useEffect, useState } from "react";
 
 function MainHome() {
@@ -18,7 +17,7 @@ function MainHome() {
 		});
 	}
 	function goToLeaderboard() {
-		navigate('/leaderboard'); 
+		navigate('/Lead'); 
 	}
 	return (
 		<div className="mainhome">

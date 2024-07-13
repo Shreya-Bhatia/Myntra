@@ -17,6 +17,8 @@
     display: flex;
     justify-content: space-between;
     width: 30vw;
+    position: absolute;
+    right: 3%;
   }
   .crown{
     width: 13vw;
@@ -41,7 +43,7 @@ margin-top: 2%;
     color: #000000;
 }
 .head {
-    margin-bottom: 14%; /* Adjusted margin as needed */
+    margin-bottom: 3%; 
   }
   .sect {
     display: flex;

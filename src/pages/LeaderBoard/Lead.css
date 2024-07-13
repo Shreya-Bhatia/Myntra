@@ -1,0 +1,96 @@
+.score{
+    background-color: #FFEFE1;
+    padding: 2.2%;
+    border: 2px solid #ff912e;
+    border-radius: 9%;
+color: #FF912E;
+width: 45%;
+text-align: center;
+display: flex;
+justify-content: space-around;
+align-items: center;
+margin-bottom: 2%;
+}
+.board{
+  color: #fff;  
+  padding: 2%;
+  background-color: #060A2D; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+.title-here{
+    font-family: 'Pacifico', cursive;
+    font-size: 5vh;
+    font-weight: bolder;
+    font-style: italic;
+    text-align: center;
+}
+.lead{
+    text-align: center;
+}
+.sub{
+    text-align: center;
+    margin-bottom: 5%;
+}
+.Leadin{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;  
+}
+
+.ootd{
+    font-weight: bolder;
+    background-color: #FFEFE1;
+    border: 2px solid #ff912e;
+    border-radius: 9%;
+color: #FF912E;
+width: 70%;
+padding: 3%;
+font-size: large;
+margin: 4%;
+}
+.others{
+   display: flex;
+   font-weight: bold;
+   display: flex;
+   align-items: center;
+}
+.leaderBoard{
+    border: 2px #060A2D solid;
+    border-radius: 7%;
+background-color: #F7F99D;
+padding: 2%;
+height: 15%;
+width: 85%;;
+margin: 3% 0%;
+color: black;
+
+}
+.person{
+    display: flex;
+    justify-content: space-around;
+}
+.score-is{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.imag{
+    background-image: url('../Home/logos/streak.png');
+    height: 5vh;
+    width: 8vw;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.itag{
+    background-image: url('../Home/logos/streak.png');
+    height: 2vh;
+    width: 7vw;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.lead{
+    color: black    ;
+    font-size: larger;
+}
