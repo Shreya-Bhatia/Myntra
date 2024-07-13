@@ -84,7 +84,8 @@ function Lead() {
                 <div className="sub">Share your everyday fashion to maintain your fashion streak and win exciting prizes!</div>
             </div>
             
-			<div></div></div>
+			<div>
+            <button className="ootd" onClick={goToUpload}>Upload Your #OOTD</button></div></div>
             <div className='others'><p>See what others are wearing today</p><FontAwesomeIcon icon={faAngleDown} style={{marginTop:'1%' ,marginLeft:'1%'}}/></div>
             <div className="outfits">
                 <div className="outfit">
