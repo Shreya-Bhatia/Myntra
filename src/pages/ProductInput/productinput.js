@@ -56,8 +56,8 @@ function ProductInput() {
 							</select>
 					Image <input type="file" name='image' onChange={handleChange}/>
 					Description <input type="text" name='desc' />
-					Rating <input type="number" name="rating" />
-					People Brought <input type="number" name="peopleb" />
+					Rating <input type="number" name="rating" step={'0.1'}/>
+					People Brought <input type="number" name="peopleb" step={'0.1'} />
 					<input type="submit" className='psubmit'/>
 				</form>
 			}

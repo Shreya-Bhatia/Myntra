@@ -11,6 +11,7 @@ import Home from './pages/Home/home';
 import MainHome from './pages/Home/mainhome';
 import Leaderboard from './pages/LeaderBoard/Lead';
 import ProductInput from './pages/ProductInput/productinput';
+import Accessories from './pages/Accessories/Accessory'
 const router = createBrowserRouter([
   {
     path: "/",
