@@ -1,9 +1,11 @@
 import Header from '../Home/Header/Header';
 import Footer from '../Home/Footer/Footer';
-import './Lead.css'
+import './Lead.css';
+import { useNavigate } from "react-router-dom";
 import React, { useRef} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'; 
+import {faHeart} from '@fortawesome/free-regular-svg-icons'
 import {db} from '../../firebase'
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
@@ -11,7 +13,7 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { getAuth } from 'firebase/auth';
 
 function Lead() {
-
+    const navigate = useNavigate();
     const storage = getStorage();
     const auth = getAuth();
 
@@ -61,7 +63,9 @@ function Lead() {
 
         alert('OOTD uploaded successfully...');
 	}
-    
+    function goToUpload() {
+		navigate('/upload'); 
+	}
 	return (
 		<div className="Lead">
 			<Header></Header>
@@ -79,27 +83,32 @@ function Lead() {
                 <div className="title-here">#fashionStreak</div>
                 <div className="sub">Share your everyday fashion to maintain your fashion streak and win exciting prizes!</div>
             </div>
-            {
-                isLoading
-                ? <h3>Loading....</h3>
-                : <form onSubmit={submitOOTD}>
-                    <input type="file" accept="image/*" onChange={handleChange}/>
-                    <input type="submit" />
-			            {/* <button type='submit' className='ootd'>
-                                Upload Your #OOTD
-                                <input 
-                                    type="file" 
-                                    accept="image/*"
-                                    // ref={fileInput} 
-                                    onChange={handleChange}
-                                    // style={{ display: 'none' }} 
-                                />
-                        </button> */}
-			        </form>
-            }
+            
 			<div></div></div>
             <div className='others'><p>See what others are wearing today</p><FontAwesomeIcon icon={faAngleDown} style={{marginTop:'1%' ,marginLeft:'1%'}}/></div>
-            <div className="outfits"></div>
+            <div className="outfits">
+                <div className="outfit">
+                    <div className="like">
+                           <FontAwesomeIcon icon={faHeart} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
+                    </div>
+                </div>
+                <div className="outfit">
+                    <div className="like">
+                           <FontAwesomeIcon icon={faHeart} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
+                    </div>
+                </div>
+                <div className="outfit">
+                    <div className="like">
+                           <FontAwesomeIcon icon={faHeart} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
+                    </div>
+                </div>
+                <div className="outfit">
+                    <div className="like">
+                           <FontAwesomeIcon icon={faHeart} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
+                    </div>
+                </div>
+            </div>
+            
 			<Footer></Footer>
 		</div>
 	);
