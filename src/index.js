@@ -2,10 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import SignIn from './pages/SignIn/signin';
 import Home from './pages/Home/home';
 import MainHome from './pages/Home/mainhome';
@@ -13,6 +10,7 @@ import Leaderboard from './pages/LeaderBoard/Lead';
 import ProductInput from './pages/ProductInput/productinput';
 import Accessories from './pages/Accessories/Accessory'
 import Upload from './pages/LeaderBoard/upload'
+import Colour from './pages/Accessories/Color';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: '/upload', 
     element: <Upload />,
+  },
+  {
+    path: '/Color', 
+    element: <Colour />,
   },
   {
     path: "/home",

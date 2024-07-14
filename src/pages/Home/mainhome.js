@@ -25,6 +25,9 @@ function MainHome() {
 	function goToProduct() {
 		navigate('/Accessory'); 
 	}
+	function goToColor() {
+		navigate('/color'); 
+	}
 	return (
 		<div className="mainhome">
 			<Header></Header>
@@ -32,6 +35,7 @@ function MainHome() {
 			<button onClick={signout}>Logout</button>
 			<button onClick={goToLeaderboard}>LeaderBoard</button>
 			<button onClick={goToProduct}>Product</button>
+			<button onClick={goToColor}>COlor</button>
 			<Footer></Footer>
 		</div>
 	);

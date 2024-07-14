@@ -90,10 +90,11 @@ color: black;
 .outfit{
     background-image: url('./20d6e971-a65c-49d4-85e9-053f71d13e071681276633859DressesMISSPAPWomenCo-OrdsMISSPAPWomenDressesMISSPAPWomenDre1.jpg');
     height: 30vh;
-    width: 45%;
+    width: 45vw;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    border-radius: 10%;
 }
 
 .person{
