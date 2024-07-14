@@ -2,7 +2,7 @@ import Header from '../Home/Header/Header';
 import Footer from '../Home/Footer/Footer';
 import './Lead.css';
 import { useNavigate } from "react-router-dom";
-import React, { useRef} from 'react';
+import React, { useEffect, useRef} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'; 
 import {faHeart} from '@fortawesome/free-regular-svg-icons'
@@ -10,6 +10,7 @@ import {db} from '../../firebase'
 import { useState } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { doc, getDoc, setDoc } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 function Lead() {
     const navigate = useNavigate();
@@ -71,9 +72,45 @@ function Lead() {
 
         alert('OOTD uploaded successfully...');
 	}
+
+    const [OOTDarrf,setOOTD] = useState("");
+
+    useEffect(() => {
+
+        async function getOOTD() {
+            const OOTDarr = [];
+            const q = query(collection(db, "OOTD"), where("id", "!=", user.uid));
+            const qSnap = await getDocs(q);
+            qSnap.forEach((doc) => {
+                OOTDarr.push(doc.data());
+            });
+    
+            const ofinal = OOTDarr.map((item) => <div className="outfit" style={{'backgroundImage': `url(${item.img})`}}>
+                        <div className="like">
+                               <FontAwesomeIcon icon={faHeart} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
+                        </div>
+                    </div>
+            );
+    
+            console.log(OOTDarr);
+    
+            setOOTD(ofinal);
+            
+        }
+
+        getOOTD();
+
+        // Set up interval to refetch data every 2 seconds
+    	const interval = setInterval(getOOTD, 2000);
+
+    	return () => clearInterval(interval);
+
+    },[]);
+
     function goToUpload() {
 		navigate('/upload'); 
 	}
+
 	return (
 		<div className="Lead">
 			<Header></Header>
@@ -96,26 +133,7 @@ function Lead() {
             <button className="ootd" onClick={goToUpload}>Upload Your #OOTD</button></div></div>
             <div className='others'><p>See what others are wearing today</p><FontAwesomeIcon icon={faAngleDown} style={{marginTop:'1%' ,marginLeft:'1%'}}/></div>
             <div className="outfits">
-                <div className="outfit">
-                    <div className="like">
-                           <FontAwesomeIcon icon={faHeart} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
-                    </div>
-                </div>
-                <div className="outfit">
-                    <div className="like">
-                           <FontAwesomeIcon icon={faHeart} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
-                    </div>
-                </div>
-                <div className="outfit">
-                    <div className="like">
-                           <FontAwesomeIcon icon={faHeart} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
-                    </div>
-                </div>
-                <div className="outfit">
-                    <div className="like">
-                           <FontAwesomeIcon icon={faHeart} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
-                    </div>
-                </div>
+                {OOTDarrf}
             </div>
             
 			<Footer></Footer>
