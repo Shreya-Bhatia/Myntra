@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { db } from '../../firebase';
-import { doc, setDoc } from "firebase/firestore";
+import { doc, increment, setDoc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { getAuth } from 'firebase/auth';
 import HeaderAccessory from '../Accessories/Header-Accessory';
@@ -59,6 +59,11 @@ function Upload() {
 
         const OOTDRef = doc(db, "OOTD", uid);
         await setDoc(OOTDRef, uootd);
+
+        const userRef = doc(db, "users", uid);
+        await updateDoc(userRef, {
+            streak_count: increment(1)
+        });
 
         setLoad(false);
 
