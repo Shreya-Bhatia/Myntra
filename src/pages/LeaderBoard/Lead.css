@@ -78,6 +78,7 @@ height: 15%;
 width: 85%;;
 margin: 3% 0%;
 color: black;
+text-align: left;
 
 }
 .outfits{
@@ -100,7 +101,8 @@ color: black;
 
 .person{
     display: flex;
-    justify-content: space-around;
+    padding: 0 15%;
+    justify-content: space-between;
 }
 .score-is{
     display: flex;

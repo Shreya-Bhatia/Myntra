@@ -12,8 +12,9 @@ const Header_Accessory = () => {
     const navigate = useNavigate();
     const location=useLocation();
     const UploadPage=location.pathname==='/upload';
+    const ViewPage=location.pathname==='/view';
     function goBack() {
-        if(UploadPage)
+        if(UploadPage||ViewPage)
         navigate('/Lead'); 
         else
         navigate('/home');
@@ -24,13 +25,13 @@ const Header_Accessory = () => {
             <div className="left">
                 <div className="back" onClick={goBack}><FontAwesomeIcon icon={faArrowLeftLong} style={{height:'4vh'}}/></div>
                 <div className="myntra"><img src={myntra} alt="" height={'25vh'} width={'25vw'} /></div>
-                {!UploadPage &&<div className="brand">SASSAFRAS</div>} {/* Here insert the brand name */}
+                {!UploadPage&&!ViewPage &&<div className="brand">SASSAFRAS</div>} {/* Here insert the brand name */}
             </div>
             <div className="right">
                 
-                {!UploadPage&&<div className="share"><FontAwesomeIcon icon={faShareNodes} style={{height:'3vh'}} onClick={() => { /* Handle share click */ }} /></div>}
-                {!UploadPage&&<div className="heart"><FontAwesomeIcon icon={faHeart} style={{height:'3vh'}}/></div>}
-                {!UploadPage&&<div className="bag"><FontAwesomeIcon icon={faBagShopping} style={{height:'3vh'}}/></div>}
+                {!UploadPage&&!ViewPage&&<div className="share"><FontAwesomeIcon icon={faShareNodes} style={{height:'3vh'}} onClick={() => { /* Handle share click */ }} /></div>}
+                {!UploadPage&&!ViewPage&&<div className="heart"><FontAwesomeIcon icon={faHeart} style={{height:'3vh'}}/></div>}
+                {!UploadPage&&!ViewPage&&<div className="bag"><FontAwesomeIcon icon={faBagShopping} style={{height:'3vh'}}/></div>}
             </div>
         </header>
     );

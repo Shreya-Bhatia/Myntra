@@ -85,7 +85,7 @@ function Upload() {
             <div className="main">
                 <form onSubmit={submitOOTD}>
                     {(previewUrl || uploadedUrl) && (
-                        <div>
+                        <div className='images'>
                             {previewUrl && !uploadedUrl && (
                                 <div>
                                     <h3 className='title-is'>Preview Your #OOTD:</h3>

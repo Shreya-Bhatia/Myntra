@@ -28,7 +28,7 @@ margin: 4%;
     margin-bottom:3%;
 }
 .Image{
-    height: auto;
+    height: 45vh;
     width: 100%;
 }
 .main{
@@ -37,6 +37,10 @@ margin: 4%;
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+.images img{
+    height: 50vh;
+    width: 100%;
 }
 form{
     display: flex;

@@ -1,0 +1,15 @@
+.image img{
+    height: 65vh;
+    width: 100%;
+}
+.head{
+    font-size: large;
+    font-weight: bold;
+    padding-left: 2vw;
+}
+.body{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

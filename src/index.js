@@ -10,6 +10,7 @@ import Leaderboard from './pages/LeaderBoard/Lead';
 import ProductInput from './pages/ProductInput/productinput';
 import Accessories from './pages/Accessories/Accessory'
 import Upload from './pages/LeaderBoard/upload'
+import View from './pages/LeaderBoard/view'
 import Colour from './pages/Accessories/Color';
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: '/upload', 
     element: <Upload />,
+  },
+  {
+    path: '/view', 
+    element: <View />,
   },
   {
     path: '/Color', 
