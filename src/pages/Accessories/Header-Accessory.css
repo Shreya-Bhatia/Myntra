@@ -1,12 +1,21 @@
 .here{
     display: flex;
+    height: 5vh;
+     align-items: center;
 }
 .left{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
+    padding-left: 2%;
+}
+.right{
+    display: flex;
+    align-items: center;
 }
 .back{
-    
+    margin-right: 3%;
 }
 .myntra{
 

@@ -22,8 +22,8 @@ const Header_Accessory = () => {
     return (
         <header className="here">
             <div className="left">
-                <div className="back" onClick={goBack}><FontAwesomeIcon icon={faArrowLeftLong} /></div>
-                <div className="myntra"><img src={myntra} alt="" height={'8vh'} width={'8vw'} /></div>
+                <div className="back" onClick={goBack}><FontAwesomeIcon icon={faArrowLeftLong} style={{height:'4vh'}}/></div>
+                <div className="myntra"><img src={myntra} alt="" height={'25vh'} width={'25vw'} /></div>
                 {!UploadPage &&<div className="brand">SASSAFRAS</div>} {/* Here insert the brand name */}
             </div>
             <div className="right">
