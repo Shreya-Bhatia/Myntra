@@ -17,6 +17,7 @@ function signIn() {
       await setDoc(
         userRef, {
           uid: auth.currentUser.uid,
+          uname: auth.currentUser.displayName,
           streak_count: 0
         }
       );
