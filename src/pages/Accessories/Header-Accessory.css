@@ -15,20 +15,10 @@
     align-items: center;
 }
 .back{
-    margin-right: 3%;
-}
-.myntra{
-
+    margin-right: 2vw;
 }
 .brand{
-
-}
-.share{
-
-}
-.heart{
-
-}
-.bag{
-
+    font-size: 2.5vh;
+    margin-left: 2vw;
+    font-weight: bold;
 }

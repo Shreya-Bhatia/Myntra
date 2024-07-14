@@ -27,10 +27,10 @@ const Header_Accessory = () => {
                 {!UploadPage &&<div className="brand">SASSAFRAS</div>} {/* Here insert the brand name */}
             </div>
             <div className="right">
-                {UploadPage&&<div className="share-upload" style={{position:"absolute",right:"2%"}}><FontAwesomeIcon icon={faShareNodes} onClick={() => { /* Handle share click */ }} /></div>}
-                {!UploadPage&&<div className="share"><FontAwesomeIcon icon={faShareNodes} onClick={() => { /* Handle share click */ }} /></div>}
-                {!UploadPage&&<div className="heart"><FontAwesomeIcon icon={faHeart} /></div>}
-                {!UploadPage&&<div className="bag"><FontAwesomeIcon icon={faBagShopping} /></div>}
+                {UploadPage&&<div className="share-upload" style={{position:"absolute",right:"2%"}}><FontAwesomeIcon icon={faShareNodes} style={{height:'3vh'}} onClick={() => { /* Handle share click */ }} /></div>}
+                {!UploadPage&&<div className="share"><FontAwesomeIcon icon={faShareNodes} style={{height:'3vh'}} onClick={() => { /* Handle share click */ }} /></div>}
+                {!UploadPage&&<div className="heart"><FontAwesomeIcon icon={faHeart} style={{height:'3vh'}}/></div>}
+                {!UploadPage&&<div className="bag"><FontAwesomeIcon icon={faBagShopping} style={{height:'3vh'}}/></div>}
             </div>
         </header>
     );

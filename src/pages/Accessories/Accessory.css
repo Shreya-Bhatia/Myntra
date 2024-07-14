@@ -1,0 +1,112 @@
+.dress img{
+    width: 100%;
+    height: auto;
+}
+.brand-name,.product-name{
+    display: inline;
+}
+.brand-name{
+    margin-right: 2%;
+    font-weight: bold;
+}
+.name{
+    padding-left: 2%;
+}
+.price{
+    padding-left: 2%;
+    padding-bottom: 2%;
+    display: flex;
+    gap: 2%;
+    align-items: center;
+    font-size: large;
+}
+.buttons{
+    padding-top: 2%;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    
+}
+.wishlist,.addToBag{
+    padding: 2%;
+    width: 37%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
+    border-radius: 4%;
+    border: 2px solid #333;
+}
+.addToBag{
+    background-color: #FF912E;
+    color: #fff;
+}
+.rate{
+    font-weight: bold;
+    margin-left: -1%;
+}
+.accessories{
+    display: flex;
+    gap: 4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    margin-bottom: 7vh;
+}
+.accessory{
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSXxf9CWFs5gZ30iQ_cELqNq0pRtJnzpvbYQ&s');
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    background-size: contain;
+    height: 16vh;
+    width: 30vw;
+    border-radius: 15%;
+}
+.circles{
+    display: flex;
+    justify-content: space-between;
+    margin:2% 45%;
+}
+.first,.second,.third,.fourth{
+border-radius: 50%;
+width: 7px;
+height: 7px;
+background-color: #000;
+}
+.symbol{
+    background-image: url('../Home/logos/offer.png');
+    height: 4vh;
+    width: 10vw;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.block{
+    height: 100vh;
+}
+.offer-head{
+    gap: 2%;
+    align-items: center;
+    display: flex;
+    padding-left: 2%;
+    padding-top: 2%;
+    color: #EF1865;
+    font-weight: bold;
+}
+.sub-head{
+    padding-left: 2%;
+}
+.second{
+    background-color: #333
+}
+.third{
+    background-color: rgba(0, 0, 0, 0.479);
+}
+.fourth{
+    background-color: rgba(0, 0, 0, 0.233);
+}
