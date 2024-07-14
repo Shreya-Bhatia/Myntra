@@ -64,7 +64,7 @@ function Lead() {
                 
                     return <div className="outfit" style={{'backgroundImage': `url(${item.img})`}}>
                         <div className="like">
-                               <FontAwesomeIcon onClick={() => likeOOTD(item.id,liked)} icon={liked ? like : nlike} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
+                               <FontAwesomeIcon onClick={() => likeOOTD(item.id,liked)} icon={liked ? like : nlike} style={{height:'25px', color:'red', paddingRight: '10px', paddingTop: '10px'}} />
                         </div>
                     </div>;
             });

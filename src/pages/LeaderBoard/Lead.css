@@ -81,19 +81,21 @@ color: black;
 
 }
 .outfits{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1% 5%;
-    margin-bottom: 7vh;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 10px;
+    grid-gap: 10px;
+    /* adjust as needed */
+    margin-bottom: 60px;
 }
 .outfit{
     background-image: url('./20d6e971-a65c-49d4-85e9-053f71d13e071681276633859DressesMISSPAPWomenCo-OrdsMISSPAPWomenDressesMISSPAPWomenDre1.jpg');
-    height: 30vh;
-    width: 45%;
+    height: 250px;
+    background-size: cover;
     background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+    border-radius: 13px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .person{
