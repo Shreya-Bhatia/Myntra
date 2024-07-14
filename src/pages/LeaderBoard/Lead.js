@@ -5,12 +5,13 @@ import { useNavigate } from "react-router-dom";
 import React, { useEffect, useRef} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'; 
-import {faHeart} from '@fortawesome/free-regular-svg-icons'
+import {faHeart as nlike} from '@fortawesome/free-regular-svg-icons'
+import { faHeart as like } from '@fortawesome/free-solid-svg-icons'
 import {db} from '../../firebase'
 import { useState } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { collection, query, where, getDocs, orderBy, limit } from "firebase/firestore";
+import { arrayRemove, arrayUnion, doc, getDoc, setDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, orderBy, limit, increment, updateDoc } from "firebase/firestore";
 
 function Lead() {
     const navigate = useNavigate();
@@ -29,6 +30,23 @@ function Lead() {
     const [OOTDarrf,setOOTD] = useState("");
     const [lead,setlead] = useState("");
 
+    async function likeOOTD(id,liked) {
+        const ootdRef = doc(db, "OOTD", id);
+        if (liked) {
+            await updateDoc(ootdRef, {
+                users_liked: arrayRemove(user.uid),
+                no_of_likes: increment(-1)
+            });
+        }
+        else {
+            await updateDoc(ootdRef, {
+                users_liked: arrayUnion(user.uid),
+                no_of_likes: increment(1)
+            });
+        }
+        
+    }
+
     useEffect(() => {
 
         async function getOOTD() {
@@ -40,13 +58,17 @@ function Lead() {
                 OOTDarr.push(doc.data());
             });
 
-            const ofinal = OOTDarr.map((item) => <div className="outfit" style={{'backgroundImage': `url(${item.img})`}}>
+            const ofinal = OOTDarr.map((item) => {
+
+                    const liked = item.users_liked.includes(user.uid);
+                
+                    return <div className="outfit" style={{'backgroundImage': `url(${item.img})`}}>
                         <div className="like">
-                               <FontAwesomeIcon icon={faHeart} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
+                               <FontAwesomeIcon onClick={() => likeOOTD(item.id,liked)} icon={liked ? like : nlike} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
                         </div>
-                    </div>
-            );
-    
+                    </div>;
+            });
+        
             setOOTD(ofinal);
             
             const leadArr = [];
@@ -61,8 +83,8 @@ function Lead() {
 
         getOOTD();
 
-        // Set up interval to refetch data every 2 seconds
-    	const interval = setInterval(getOOTD, 2000);
+        // Set up interval to refetch data every 1 seconds
+    	const interval = setInterval(getOOTD, 1000);
 
     	return () => clearInterval(interval);
 
