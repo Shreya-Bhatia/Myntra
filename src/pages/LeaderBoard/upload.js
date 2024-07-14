@@ -5,6 +5,8 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { getAuth } from 'firebase/auth';
 import HeaderAccessory from '../Accessories/Header-Accessory';
 import './upload.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShare } from '@fortawesome/free-solid-svg-icons';
 
 function Upload() {
     const [file, setFile] = useState(null);
@@ -67,11 +69,19 @@ function Upload() {
 
         alert('OOTD uploaded successfully...');
     }
-    
 
+    function shareOnFacebook() {
+        const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(uploadedUrl)}`;
+        window.open(shareUrl, '_blank');
+    }
+    function shareOnTwitter() {
+    const shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(uploadedUrl)}&text=Check%20out%20my%20%23OOTD!`;
+    window.open(shareUrl, '_blank');
+}
     return (
         <div className="container">
             <HeaderAccessory />
+            
             <div className="main">
                 <form onSubmit={submitOOTD}>
                     {(previewUrl || uploadedUrl) && (
@@ -103,6 +113,22 @@ function Upload() {
                     )}
                     {isLoading ? <h3>Loading....</h3> : !uploadedUrl && <input type="submit" value="Submit Your #OOTD" className='Submit' />}
                 </form>
+                <div className="share-buttons">
+                {uploadedUrl && (
+                    <>
+                        <div className="share-btn" onClick={shareOnFacebook}>
+                            
+                            <div className="face">Share #OOTD to FaceBook</div>
+                            <FontAwesomeIcon icon={faShare} size="2x" color="#3b5998" />
+                        </div>
+                        <div className="share-btn" onClick={shareOnTwitter}>
+                            <div className="twitter">Share #OOTD to Twitter</div>
+                            <FontAwesomeIcon icon={faShare} size="2x" color="#1da1f2" />
+                        </div>
+                        
+                    </>
+                )}
+            </div>
             </div>
         </div>
     );

@@ -42,4 +42,12 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
+}.twitter,.face{
+    font-weight: bold;
+    width: 100%;
+}
+.share-btn{
+    display: flex;
+    align-items: center;
+    gap: 2%;
 }
