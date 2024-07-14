@@ -5,12 +5,13 @@ import { useNavigate } from "react-router-dom";
 import React, { useEffect, useRef} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'; 
-import {faHeart} from '@fortawesome/free-regular-svg-icons'
+import {faHeart as nlike} from '@fortawesome/free-regular-svg-icons'
+import { faHeart as like } from '@fortawesome/free-solid-svg-icons'
 import {db} from '../../firebase'
 import { useState } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { arrayRemove, arrayUnion, doc, getDoc, setDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, orderBy, limit, increment, updateDoc } from "firebase/firestore";
 
 function Lead() {
     const navigate = useNavigate();
@@ -26,54 +27,25 @@ function Lead() {
 
     getUser();
 
-    // const fileInput=useRef(null);
-    
-    // const handleButtonClick=async ()=>{
-    //     await fileInput.current.click();
-    // };
-
-    const [file, setFile] = useState();
-    const [isLoading,setLoad] = useState(false);
-
-	function handleChange(event) {
-		setFile(event.target.files[0])
-	}
-    
-    async function submitOOTD(e) {
-
-		e.preventDefault();
-
-        const uid = user.uid;
-
-		if(file==null) {
-            return;
-        }
-
-        setLoad(true);
-
-		const imgref = ref(storage, 'ootd_images/' + uid);
-		await uploadBytes(imgref,file);
-		
-        const uootd = {
-            img: "",
-            users_liked: [],
-            no_of_likes: 0,
-            id: uid
-        };
-
-		await getDownloadURL(imgref).then((url) => {
-			uootd.img = url;
-		});
-
-		const OOTDRef = doc(db,"OOTD",uid);
-		await setDoc(OOTDRef, uootd);
-
-        setLoad(false);
-
-        alert('OOTD uploaded successfully...');
-	}
-
     const [OOTDarrf,setOOTD] = useState("");
+    const [lead,setlead] = useState("");
+
+    async function likeOOTD(id,liked) {
+        const ootdRef = doc(db, "OOTD", id);
+        if (liked) {
+            await updateDoc(ootdRef, {
+                users_liked: arrayRemove(user.uid),
+                no_of_likes: increment(-1)
+            });
+        }
+        else {
+            await updateDoc(ootdRef, {
+                users_liked: arrayUnion(user.uid),
+                no_of_likes: increment(1)
+            });
+        }
+        
+    }
 
     useEffect(() => {
 
@@ -81,27 +53,38 @@ function Lead() {
             const OOTDarr = [];
             const q = query(collection(db, "OOTD"), where("id", "!=", user.uid));
             const qSnap = await getDocs(q);
+
             qSnap.forEach((doc) => {
                 OOTDarr.push(doc.data());
             });
-    
-            const ofinal = OOTDarr.map((item) => <div className="outfit" style={{'backgroundImage': `url(${item.img})`}}>
+
+            const ofinal = OOTDarr.map((item) => {
+
+                    const liked = item.users_liked.includes(user.uid);
+                
+                    return <div className="outfit" style={{'backgroundImage': `url(${item.img})`}}>
                         <div className="like">
-                               <FontAwesomeIcon icon={faHeart} style={{height:'3vh', color:'red', marginLeft:'33vw',marginTop:'2.4vh'}} />
+                               <FontAwesomeIcon onClick={() => likeOOTD(item.id,liked)} icon={liked ? like : nlike} style={{height:'25px', color:'red', paddingRight: '10px', paddingTop: '10px'}} />
                         </div>
-                    </div>
-            );
-    
-            console.log(OOTDarr);
-    
+                    </div>;
+            });
+        
             setOOTD(ofinal);
             
+            const leadArr = [];
+            const qlead = query(collection(db, "users"), orderBy("streak_count", "desc"), limit(3));
+            const qleadSnap = await getDocs(qlead);
+            qleadSnap.forEach((doc) => {
+                leadArr.push(doc.data());
+            });
+            const leadf = leadArr.map((item,index) => <div className="person"><div className="name">{index+1}. {item.uname}</div><div className="score-is"><p className='streak'>{item.streak_count}</p><div className="itag"></div></div></div>);
+            setlead(leadf);
         }
 
         getOOTD();
 
-        // Set up interval to refetch data every 2 seconds
-    	const interval = setInterval(getOOTD, 2000);
+        // Set up interval to refetch data every 1 seconds
+    	const interval = setInterval(getOOTD, 1000);
 
     	return () => clearInterval(interval);
 
@@ -120,9 +103,10 @@ function Lead() {
                 <div className="leaderBoard">
                     <h6 className='lead'>LeaderBoard</h6>
                     <div className="list">
-                        <div className="person"><div className="name">1. Sophia Martinez</div><div className="score-is"><p className='streak'>1000</p><div className="itag"></div></div></div>
+                        {lead}
+                        {/* <div className="person"><div className="name">1. Sophia Martinez</div><div className="score-is"><p className='streak'>1000</p><div className="itag"></div></div></div>
                         <div className="person"><div className="name">2. Sophia Martinez</div><div className="score-is"><p className='streak'>1000</p><div className="itag"></div></div></div>
-                        <div className="person"><div className="name">3. Sophia Martinez</div><div className="score-is"><p className='streak'>1000</p><div className="itag"></div></div></div>
+                        <div className="person"><div className="name">3. Sophia Martinez</div><div className="score-is"><p className='streak'>1000</p><div className="itag"></div></div></div> */}
                     </div>
                 </div>
                 <div className="title-here">#fashionStreak</div>
