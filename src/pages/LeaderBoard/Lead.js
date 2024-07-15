@@ -10,8 +10,9 @@ import { faHeart as like } from '@fortawesome/free-solid-svg-icons'
 import {db} from '../../firebase'
 import { useState } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { arrayRemove, arrayUnion, doc, getDoc, setDoc } from "firebase/firestore";
+import { arrayRemove, arrayUnion, doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { collection, query, where, getDocs, orderBy, limit, increment, updateDoc } from "firebase/firestore";
+import moment from 'moment/moment';
 
 function Lead() {
     const navigate = useNavigate();
@@ -29,6 +30,7 @@ function Lead() {
 
     const [OOTDarrf,setOOTD] = useState("");
     const [lead,setlead] = useState("");
+    const [canUpload,setUpload] = useState(false);
 
     async function likeOOTD(id,liked) {
         const ootdRef = doc(db, "OOTD", id);
@@ -47,6 +49,20 @@ function Lead() {
         
     }
 
+    function checkUpload(ootd_time) {
+        if (ootd_time == null) {
+            return true;
+        }
+
+        const today = moment(new Date()).format("DD-MM-YYYY").toString();
+
+        if (today == ootd_time) {
+                return false;
+        }
+
+        return true;
+    }
+
     useEffect(() => {
 
         async function getOOTD() {
@@ -57,6 +73,10 @@ function Lead() {
             qSnap.forEach((doc) => {
                 OOTDarr.push(doc.data());
             });
+
+            const mootd = await getDoc(doc(db,"OOTD",user.uid));
+            const mootdData = mootd.data();
+            setUpload(checkUpload(mootdData.ootd_time));
 
             const ofinal = OOTDarr.map((item) => {
 
@@ -117,8 +137,11 @@ function Lead() {
             </div>
             
 			<div style={{justifyContent:'center',display:'flex',flexDirection:'column'}}>
-            <button className="ootd" onClick={goToUpload}>Upload Your #OOTD</button>
-            <button className="ootd" onClick={goToView}>View Your #OOTD</button></div></div>
+            {
+                canUpload
+                ? <button className="ootd" onClick={goToUpload}>Upload Your #OOTD</button>
+                : <button className="ootd" onClick={goToView}>View Your #OOTD</button>
+            }</div></div>
             <div className='others'><p>See what others are wearing today</p><FontAwesomeIcon icon={faAngleDown} style={{marginTop:'1%' ,marginLeft:'1%'}}/></div>
             <div className="outfits">
                 {OOTDarrf}

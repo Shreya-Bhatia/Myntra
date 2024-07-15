@@ -7,6 +7,7 @@ import HeaderAccessory from '../Accessories/Header-Accessory';
 import './upload.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
+import moment from 'moment/moment';
 
 function Upload() {
     const [file, setFile] = useState(null);
@@ -49,7 +50,8 @@ function Upload() {
             img: "",
             users_liked: [],
             no_of_likes: 0,
-            id: uid
+            id: uid,
+            ootd_time: moment(new Date()).format("DD-MM-YYYY")
         };
 
         await getDownloadURL(imgref).then((url) => {

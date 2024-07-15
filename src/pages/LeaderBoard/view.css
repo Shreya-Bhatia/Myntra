@@ -13,3 +13,11 @@
     flex-direction: column;
     justify-content: center;
 }
+.ootdlikes {
+    background-color: pink;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 17px;
+}
