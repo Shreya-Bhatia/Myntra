@@ -7,8 +7,35 @@ import men from './homePage/men.png'
 import women from './homePage/women.jpg'
 import SlickContent from './SlickContent'
 import { Card } from './Card'
+import { useState, useEffect } from 'react'
+import { query, collection, getDocs } from 'firebase/firestore'
+import {db} from '../../firebase'
 
 export const Content = () => {
+    const [prodarrf,setprod] = useState("");
+
+    useEffect(() => {
+
+        async function getprod() {
+            const prodarr = [];
+            // const q = query(collection(db, "proucts"));
+            const qSnap = await getDocs(collection(db, "products"));
+
+            qSnap.forEach((doc) => {
+                prodarr.push(doc.data());
+            });
+
+            const pfinal = prodarr.map((item) => {
+                    return <Card desc={item.desc} name={item.name} cost={item.price} img={item.image}/>;
+            });
+        
+            setprod(pfinal);
+        }
+
+        getprod();
+
+    },[]);
+
     return (
         <div className="container mx-auto">
             <div className="h-8 text-center bg-pink-600 pt-[6px] text-white text-xs px-auto rounded-md w-[350px] mx-auto my-5"><span>On every 15th of the month, get a free accessory!</span></div>
@@ -37,7 +64,7 @@ export const Content = () => {
                 </h4>
                 <p className='text-[#FF912E] text-xs pl-[8px] pt-1'>Show off your style! Enter our dress-up challenge for a chance to win points and recognition.</p>
             </div>
-            <div className="absolute top-[258px] right-[15px] rounded-md text-center text-white bg-[#FF912E] w-[222px] h-[24px] text-xs flex items-center justify-center">
+            <div className="absolute top-[262px] right-[15px] rounded-md text-center text-white bg-[#FF912E] w-[222px] h-[24px] text-xs flex items-center justify-center">
                 View Challenge for this week
                 <span>
                     <FontAwesomeIcon icon={faArrowRight} color='#FFFFFF' className='pl-5' />
@@ -55,9 +82,8 @@ export const Content = () => {
             </div>
             <SlickContent />
             <div className="font-bold mt-6 text-center">OUR PICKS FOR YOU</div>
-            <div className="flex justify-center items-center mx-auto">
-                <Card />
-                <Card />
+            <div className="flex flex-wrap justify-center items-center mx-auto">
+                {prodarrf}
             </div>
         </div>
     )

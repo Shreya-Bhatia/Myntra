@@ -3,6 +3,7 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Content } from "./Content";
 
 function MainHome() {
 
@@ -31,11 +32,12 @@ function MainHome() {
 	return (
 		<div className="mainhome">
 			<Header></Header>
-			Hello {user.displayName}
+			{/* Hello {user.displayName}
 			<button onClick={signout}>Logout</button>
 			<button onClick={goToLeaderboard}>LeaderBoard</button>
 			<button onClick={goToProduct}>Product</button>
-			<button onClick={goToColor}>COlor</button>
+			<button onClick={goToColor}>COlor</button> */}
+			<Content></Content>
 			<Footer></Footer>
 		</div>
 	);

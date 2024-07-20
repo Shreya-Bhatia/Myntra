@@ -9,7 +9,7 @@ import  HeaderAccessory from './Header-Accessory';
 import productImg from '../LeaderBoard/20d6e971-a65c-49d4-85e9-053f71d13e071681276633859DressesMISSPAPWomenCo-OrdsMISSPAPWomenDressesMISSPAPWomenDre1.jpg'
 const Access=()=>{
     return(
-        <div className="block">
+        <div className="ablock">
             <HeaderAccessory></HeaderAccessory>
             <div className="dress"><img src={productImg} alt="" /></div>
             <div className="circles">
